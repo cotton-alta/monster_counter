@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/count.css' />
+  </head>
+  <body>
+    <header>
+      <h1><%= title %></h1>
+    </header>
+
+    <div class="flex">        
+        <div class="flex-box">
+
+          <div class="flex-pack">
+            <div style="width: 20%" class="image-flex"><img class="imageIcon" src="/images/greenMonster.jpg"></div>
+            <div class="product"><p>緑魔剤</p></div>
+            <div class="button"><a href="/count/countDownGreen" class="btn-count-down">-</a></div>
+            <div class="count-num"><h3><%= greenMonster %></h3></div>
+            <div class="button"><a href="/count/countUpGreen" class="btn-count-up">+</a></div>
+          </div>
+        
+          <div class="flex-pack">
+            <div class="image-flex"><img class="imageIcon" src="/images/redMonster.jpg"></div>
+            <div class="product"><p>赤魔剤</p></div>
+            <div class="button"><a href="/count/countDownRed" class="btn-count-down">-</a></div>
+            <div class="count-num"><h3><%= redMonster %></h3></div>
+            <div class="button"><a href="/count/countUpRed" class="btn-count-up">+</a></div>
+          </div>
+        
+          <div class="flex-pack">
+            <div class="image-flex"><img class="imageIcon" src="/images/whiteMonster.jpg"></div>
+            <div class="product"><p>白魔剤</p></div>
+            <div class="button"><a href="/count/countDownWhite" class="btn-count-down">-</a></div>
+            <div class="count-num"><h3><%= whiteMonster %></h3></div>
+            <div class="button"><a href="/count/countUpWhite" class="btn-count-up">+</a></div>
+          </div>
+        
+          <div class="flex-pack">
+            <div class="image-flex"><img class="imageIcon" src="/images/blueMonster.jpg"></div>
+            <div class="product"><p>青魔剤</p></div>
+            <div class="button"><a href="/count/countDownBlue" class="btn-count-down">-</a></div>
+            <div class="count-num"><h3><%= blueMonster %></h3></div>
+            <div class="button"><a href="/count/countUpBlue" class="btn-count-up">+</a></div>
+          </div>
+        
+        </div>
+    </div>
+    <a href="/" class="back-page">戻る</a>
+  </body>
+</html>

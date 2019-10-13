@@ -1,0 +1,27 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  /* padding: 50px; */
+  font: 2.3rem "Lucida Grande", Helvetica, Arial, sans-serif;
+  /* 開発中のみ */
+  /* width: 400px; */
+  width: 100%;
+  background-color: rgb(215, 241, 245);
+  text-align: center;
+}
+input {
+  width: 50%;
+  height: 3.4rem;
+  font-size: 100%;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 3rem;
+}

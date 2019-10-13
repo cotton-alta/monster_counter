@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/rank.css' />
+  </head>
+  <body>
+    <header>
+      <h1><%= title %></h1>
+    </header>
+
+    <!-- 今週の順位 -->
+    <h3>今週の順位</h3>
+    <div class="flex-pack">
+        <div style="width: 50%;">
+          <h3 class="flex-border" style="padding-bottom: 1rem;">順位</h3>
+          <% for(var i = 1; i <= num; i++){ %>
+            <div class="flex-border">
+              <p><%= i %></p>
+            </div>
+          <% } %>
+        </div>
+        <div style="width: 50%;">
+          <h3 class="flex-border" style="padding-bottom: 1rem;">名前（本数）</h3>
+          <% for(var data of datas) { %>
+            <div class="flex-border">
+              <p><%= data.hanne %>(<%= data.numMonster %>本)</p>
+            </div>
+          <% } %>
+        </div>
+    </div>
+
+    <!-- 全期間での順位 -->
+    <h3>全期間での順位</h3>
+    <div class="flex-pack">
+        <div style="width: 50%;">
+          <h3 class="flex-border" style="padding-bottom: 1rem;">順位</h3>
+          <% for(var i = 1; i <= num; i++){ %>
+            <div class="flex-border">
+              <p><%= i %></p>
+            </div>
+          <% } %>
+        </div>
+        <div style="width: 50%;">
+          <h3 class="flex-border" style="padding-bottom: 1rem;">名前（本数）</h3>
+          <% for(var data of datas) { %>
+            <div class="flex-border">
+              <p><%= data.hanne %>(<%= data.numMonster %>本)</p>
+            </div>
+          <% } %>
+        </div>
+    </div>
+    <a href="/" class="back-page">戻る</a>
+  </body>
+</html>

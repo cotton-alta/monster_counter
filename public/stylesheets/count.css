@@ -1,0 +1,132 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  /* padding: 50px; */
+  font: 2.5rem "Lucida Grande", Helvetica, Arial, sans-serif;
+  /* 開発中のみ */
+  /* width: 400px; */
+  width: 100%;
+  background-color: rgb(215, 241, 245);
+}
+
+.flex {
+  margin: 4%;
+}
+
+header {
+  background-color: #69F0AE;
+  top: 0;
+  height: 10rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header h1 {
+  color: white;
+}
+
+  .flex-box {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .flex-pack {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      /* justify-content: space-around; */
+      justify-content: center;
+      margin-top: 8px;
+      margin-bottom: 8px;
+      padding-bottom: 3px;
+      border-bottom: 2px outset rgb(95, 95, 95);
+  }
+
+.image-flex {
+  width: 20%;
+  text-align: center;
+  /* display: flex; */
+  /* align-items: center; */
+}
+
+  .imageIcon {
+    display: inline-block;
+    /* height: auto; */
+    width: 60%;
+    border-radius: 20%;
+    /* display: flex; */
+    /* align-items: center; */
+  }
+  
+  /* .imageIcon::before {
+    padding-top: 100%;
+  } */
+
+.button {
+  /* line-height: 100%; */
+  width: 10%;
+  height: auto;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+a.btn-count-down, a.btn-count-up {
+  display: inline-block;
+  text-decoration: none;
+  background: #69F0AE;
+  color: #FFF;
+  width: 30%;
+  line-height: 100%;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+  transition: .4s;
+  padding: 15% 20%;
+  }
+  
+  a.btn-count-down:hover, a.btn-count-up:hover {
+    background: #00E676;
+  }
+
+  h3 {
+    /* margin-top: 60%;
+    line-height: 100%; */
+    text-align: center;
+    width: 100%;
+    color: rgb(88, 88, 88);
+  }
+
+  .count-num {
+    display: flex;
+    align-items: center;
+    width: 15%;
+  }
+
+  .product {
+    display: flex;
+    align-items: center;
+    width: 30%;
+    justify-content: center;
+    color: rgb(88, 88, 88);
+  }
+/* 
+  .flex-mim {
+    display: flex;
+    justify-content: center;
+  } */
+
+.back-page {
+  text-decoration: none;
+  float: right; 
+  margin-right: 10%;
+}

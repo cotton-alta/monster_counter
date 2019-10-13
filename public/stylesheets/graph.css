@@ -1,0 +1,23 @@
+body {
+  /* padding: 50px; */
+  font: 2.5rem "Lucida Grande", Helvetica, Arial, sans-serif;
+  /* 開発中のみ */
+  /* width: 400px; */
+  width: 100%;
+  background-color: rgb(215, 241, 245);
+  margin-top: 0px;
+}
+
+header {
+  background-color: #69F0AE;
+  top: 0;
+  height: 10rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header h1 {
+  color: white;
+}

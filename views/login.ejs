@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/login.css' />
+  </head>
+  <body>
+    <form action="/login" method="post">
+      <div>
+        <p>ログインページ</p>
+      </div>
+      <div>
+        <p>ID</p>
+        <input type="text" name="username">
+      </div>
+      <div>
+        <p>パスワード</p>
+        <input type="password" name="password">
+      </div>
+      <div>
+        <input type="submit" style="margin: 1rem 0;">
+      </div>
+    </form>
+    <div style="text-align: center">
+      <a href="/newuser">新規会員登録</a>
+    </div>
+  </body>
+</html>

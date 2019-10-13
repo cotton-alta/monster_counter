@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/login.css' />
+  </head>
+  <body>
+    <form action="/newuser" method="post" enctype="multipart/form-data">
+      <div>
+        <p>新規会員登録ページ</p>
+      </div>
+      <div>
+        <p>ID</p>
+        <input type="text" name="hanne">
+      </div>
+      <div>
+        <p>パスワード</p>
+        <input type="password" name="password">
+      </div>
+      <div class="profile">
+        <div><p>プロフィール画像</p></div>
+        <div><input type="file" name="profileImage" class="file"></div>
+      </div>
+      <div>
+        <input type="submit"value="新規会員登録">
+      </div>
+    </form>
+  </body>
+</html>
