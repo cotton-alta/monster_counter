@@ -10,7 +10,9 @@ var schemaModel = new Schema({
     'whiteMonster': Number,
     'blueMonster': Number,
     'numMonster': Number,
-    'profileImage': String
+    'profileImage': String,
+    'weekData': Number,
+    'use': Boolean
 });
 
 mongoose.connect('mongodb://127.0.0.1/monsters');

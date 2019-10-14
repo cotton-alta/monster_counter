@@ -114,7 +114,9 @@ router.post('/newuser', upload.single('profileImage'), function(req, res, next){
       'whiteMonster': 0,
       'blueMonster': 0,
       'numMonster': 0,
-      'profileImage': image
+      'profileImage': image,
+      'weekData': 0,
+      'use': true
     });
 
 
@@ -148,7 +150,7 @@ router.get('/rank', function(req, res, next){
   //ログイン情報がなければログイン画面にリダイレクト
   if(req.user == undefined){
     res.redirect('/login');
-  }else{
+  }else{    
     //ユーザ情報をソートして取得
     myData.where().sort({'numMonster': 'desc'}).limit(10).exec(function(err, result){
       if(err){
