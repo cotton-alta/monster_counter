@@ -13,6 +13,10 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var countRouter = require('./routes/count');
 
+//時間処理
+var SelfTimer = require('self-timer');
+var st = new SelfTimer(new Date());
+
 //mongodb関連
 var model = require('./routes/model');
 var mongodb = require('mongodb');
@@ -98,6 +102,23 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+});
+
+st.on().Sunday(function(){
+	//コールバック処理
+	
+	//mongodbのユーザーデータweekDataを0にする
+	//model = コレクション名
+	myData.updateMany({
+    use: true 
+  },{ $set: { 
+    weekData: 0 
+  } }, function(err){
+    if(err){
+      console.log(err);
+    }
+	});
+	console.log('日曜日に実行');
 });
 
 //サーバ起動
