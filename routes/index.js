@@ -174,20 +174,6 @@ router.get('/rank', function(req, res, next){
   
 });
 
-
-// dom.get('/hello', function(document) {
-//   document.title = 'Hello World';
-// });
-
-
-// https.get(url, res => {
-//   let html = '';
-//   res.on('data', line => html += line);
-//   res.on('end', () => {
-//     console.log(html);
-//   });
-// });
-
 //グラフページget処理
 router.get('/graph', function(req, res, next){
 
@@ -202,16 +188,22 @@ router.get('/graph', function(req, res, next){
 
     res.render('graph', 
     { title: 'graph page' ,
-    user: req.user
-  });
+      user: req.user  
+    });
+  }
+});
 
+router.get('/form', function(req, res, next){
+  if(req.user == undefined){
+    res.redirect('/login');
+  }else{
 
-  // fs.readFile('/public/graph.html', 'UTF-8', function(err, data){
-  //   res.setHeader('Content-Type', 'text/html');
-  //   res.end(data);
-  // });
-}
+    res.render('form', 
+    { title: 'form page',
+      user: req.user
+    });
 
+  }
 });
 
 module.exports = router;
