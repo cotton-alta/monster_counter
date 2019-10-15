@@ -22,9 +22,9 @@
         </div>
         <div style="width: 50%;">
           <h3 class="flex-border" style="padding-bottom: 1rem;">名前（本数）</h3>
-          <% for(var data of datas) { %>
+          <% for(var week_num of weekDatas) { %>
             <div class="flex-border">
-              <p><%= data.hanne %>(<%= data.numMonster %>本)</p>
+              <p><%= week_num.hanne %>(<%= week_num.weekData %>本)</p>
             </div>
           <% } %>
         </div>

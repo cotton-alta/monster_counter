@@ -151,19 +151,24 @@ router.get('/rank', function(req, res, next){
   if(req.user == undefined){
     res.redirect('/login');
   }else{    
+    
     //ユーザ情報をソートして取得
     myData.where().sort({'numMonster': 'desc'}).limit(10).exec(function(err, result){
-      if(err){
-        console.log(err);
-      }else{
-        var num = Object.keys(result).length; 
-        res.render('rank', 
+      myData.where().sort({'weekData': 'desc'}).limit(10).exec(function(err, data){
+        
+        if(err){
+          console.log(err);
+        }else{
+          var num = Object.keys(result).length; 
+          res.render('rank', 
           { title: 'rank page' ,
-          user: req.user,
-          datas: result,
-          num: num
-        });
-      }
+            user: req.user,
+            datas: result,
+            weekDatas: data,
+            num: num
+          });
+        }
+      });
     });
   }
   

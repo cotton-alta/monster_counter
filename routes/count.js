@@ -46,6 +46,7 @@ router.get('/', function(req, res, next){
     }else{
       myData.findOne({hanne: req.user}, function(err, result){
         
+        result.weekData += 1;
         result.greenMonster += 1;
         console.log(result.greenMonster);
         result.save(function(err){
@@ -68,6 +69,7 @@ router.get('/', function(req, res, next){
         if(result.greenMonster <= 0){
           res.redirect('/count');
         }else{
+          result.weekData -= 1;
           result.greenMonster -= 1;
           result.save(function(err){
             if(err){
@@ -88,6 +90,7 @@ router.get('/', function(req, res, next){
     }else{
       myData.findOne({hanne: req.user}, function(err, result){
         
+        result.weekData += 1;
         result.redMonster += 1;
         console.log(result.redMonster);
         result.save(function(err){
@@ -110,6 +113,8 @@ router.get('/', function(req, res, next){
         if(result.redMonster <= 0){
           res.redirect('/count');
         }else{
+
+          result.weekData -= 1;
           result.redMonster -= 1;
           result.save(function(err){
             if(err){
@@ -130,6 +135,7 @@ router.get('/', function(req, res, next){
     }else{
       myData.findOne({hanne: req.user}, function(err, result){
         
+        result.weekData += 1;
         result.whiteMonster += 1;
         result.save(function(err){
           if(err){
@@ -151,6 +157,8 @@ router.get('/', function(req, res, next){
         if(result.whiteMonster <= 0){
           res.redirect('/count');
         }else{
+
+          result.weekData -= 1;
           result.whiteMonster -= 1;
           result.save(function(err){
             if(err){
@@ -171,6 +179,7 @@ router.get('/', function(req, res, next){
     }else{
       myData.findOne({hanne: req.user}, function(err, result){
         
+        result.weekData += 1;
         result.blueMonster += 1;
         result.save(function(err){
           if(err){
@@ -192,6 +201,8 @@ router.get('/', function(req, res, next){
         if(result.blueMonster <= 0){
           res.redirect('/count');
         }else{
+
+          result.weekData -= 1;
           result.blueMonster -= 1;
           result.save(function(err){
             if(err){
