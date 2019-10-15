@@ -5,6 +5,9 @@
     <link rel='stylesheet' href='/stylesheets/form.css' />
   </head>
   <body>
+    <header>
+      <h1><%= title %></h1>
+    </header>
     <form action="/form" method="post">
         <p>メールアドレス</p>
         <input type="text" name="mail">
@@ -12,5 +15,6 @@
         <input type="text" name="message">
         <input type="submit">
     </form>
+    <a href="/" class="back-page">戻る</a>
   </body>
 </html>
