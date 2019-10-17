@@ -206,4 +206,40 @@ router.get('/form', function(req, res, next){
   }
 });
 
+router.post('/form', function(req, res, next){
+  var address = req.body.mail;
+  var text = req.body.message;
+
+  //メッセージ内容
+  var message = {
+    form: '',
+    to: '',
+    subject: '',
+    text: address + text
+  };
+
+  //smtpサーバ設定
+  var smtp = nodemailer.createTransport({
+    //ここでgmail送信用の設定を追加
+    host: 'localhost',
+    port: 25
+  });
+
+  //メール送信処理
+  try{
+    smtp.sendMail(message, function(error, info){
+      if(error){
+        console.log('送信失敗');
+        console.log(error.message);
+        return;
+      }
+
+      console.log('送信成功');
+      console.log(info.messageId);
+    });
+  }catch(e){
+    console.log('error', e);
+  }
+});
+
 module.exports = router;
