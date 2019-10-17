@@ -1,7 +1,8 @@
 
 body {
   /* padding: 50px; */
-  font: 2.5rem "Lucida Grande", Helvetica, Arial, sans-serif;
+  /* font: 2.5rem "Lucida Grande", Helvetica, Arial, sans-serif; */
+  font: 2.5rem 'Roboto', 'Noto Sans JP', sans-serif;
   /* 開発中のみ */
   /* width: 400px; */
   width: 100%;
