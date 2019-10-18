@@ -14,6 +14,7 @@ body {
   /* 開発中のみ */
   /* width: 400px; */
   width: 100%;
+  max-width: 1000px;
   background-color: rgb(215, 241, 245);
   text-align: center;
 }
@@ -122,7 +123,7 @@ header h1 {
   display: inline-block;
   position: absolute;
   top: 20%;
-  left: -13%;
+  left: -20%;
   border: 50px solid transparent;
   border-right: 60px solid #69F0AE;
   z-index: 0;

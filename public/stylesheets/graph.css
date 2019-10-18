@@ -4,6 +4,7 @@ body {
   /* 開発中のみ */
   /* width: 400px; */
   width: 100%;
+  max-width: 1000px;
   background-color: rgb(215, 241, 245);
   margin-top: 0px;
 }
