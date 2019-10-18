@@ -146,6 +146,12 @@ router.post('/login', passport.authenticate('local',
   session: true
 }));
 
+//ログアウトget処理
+router.get('/logout', function(req, res, next){
+  req.logout();
+  res.redirect('/login');
+});
+
 //ランキングページget処理
 router.get('/rank', function(req, res, next){
 
