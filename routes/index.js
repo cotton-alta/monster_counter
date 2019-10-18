@@ -15,6 +15,8 @@ app.use(bodyParser.json());
 
 var d3 = require("d3");
 
+var nodemailer = require('nodemailer');
+
 //プロフィール画像のアップロード
 var multer = require('multer');
 var upload = multer({ dest: './public/images/uploads/'});
@@ -212,17 +214,22 @@ router.post('/form', function(req, res, next){
 
   //メッセージ内容
   var message = {
-    form: '',
-    to: '',
-    subject: '',
-    text: address + text
+    form: 'chinoknct@gmail.com',
+    to: 'g1822007@tcu.ac.jp',
+    subject: 'お問い合わせ',
+    text: address + '\n' + text
   };
 
   //smtpサーバ設定
   var smtp = nodemailer.createTransport({
     //ここでgmail送信用の設定を追加
-    host: 'localhost',
-    port: 25
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
+    auth: {
+      user: 'chinoknct@gmail.com',
+      pass: 'yutayuta321'
+    }
   });
 
   //メール送信処理
@@ -240,6 +247,8 @@ router.post('/form', function(req, res, next){
   }catch(e){
     console.log('error', e);
   }
+
+  res.redirect('/form');
 });
 
 module.exports = router;
