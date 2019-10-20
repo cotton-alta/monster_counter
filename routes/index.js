@@ -201,6 +201,30 @@ router.get('/graph', function(req, res, next){
   }
 });
 
+//アカウント設定ページget処理
+router.get('/acount', function(req, res, next){
+  if(req.user == undefined){
+    res.redirect('/login');
+  }else{
+
+    res.render('acount', 
+    { title: 'acount setting page',
+      user: req.user
+    });
+
+  }
+});
+
+//アカウント設定ページpost処理
+router.post('/acount', function(req, res, next){
+  if(req.user == undefined){
+    res.redirect('/login');
+  }else{
+
+  }
+});
+
+//お問い合わせページget処理
 router.get('/form', function(req, res, next){
   if(req.user == undefined){
     res.redirect('/login');
