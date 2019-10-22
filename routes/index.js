@@ -24,12 +24,6 @@ var upload = multer({ dest: './public/images/uploads/'});
 var saysSample = require('./remark');
 var remark = saysSample.remark;
 
-//DOM操作用
-// var Canvas = require('canvas');
-// var tauCharts = require('taucharts');
-// var d3 = require('d3');
-// var dom = require('express-jsdom')(server);
-
 //mongodb関連
 var model = require('./model');
 var mongodb = require('mongodb');
@@ -217,11 +211,39 @@ router.get('/acount', function(req, res, next){
 
 //アカウント設定ページpost処理
 router.post('/acount', function(req, res, next){
+  //ログイン情報がなければログイン画面にリダイレクト
   if(req.user == undefined){
     res.redirect('/login');
   }else{
 
+    var new_username = req.body.username;
+    var new_password = req.body.password;    
+
+    myData.findOne({hanne: req.user}, function(err, result){
+      
+      result.hanne = new_username;
+      result.password = new_password;
+      
+      
+      result.save(function(err){
+        if(err){
+          console.log(err);
+        }else{
+          req.logout();
+          res.redirect('/change');
+        }
+      });
+    });
   }
+  
+});
+
+//変更反映ページget処理
+router.get('/change',function(req, res, next){
+  res.render('change',
+  { title: 'acount setting page',
+    msg: '変更が完了しました。<br>お手数ですが再度ログインをお願いします。<br>'
+});
 });
 
 //お問い合わせページget処理

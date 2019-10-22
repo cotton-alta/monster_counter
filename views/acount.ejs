@@ -9,6 +9,24 @@
     <header>
       <h1><%= title %></h1>
     </header>
+    <form action="/acount" method="post">
+      <div>
+        <p>ID</p>
+        <input type="text" name="username">
+      </div>
+      <div>
+        <p>パスワード</p>
+        <input type="password" name="password">
+      </div>
+      <!--
+      <div>
+        <p>プロフィール画像</p>
+        <input type="file" name="profileImage" class="file">
+      </div>
+      -->
+      <div>
+        <input type="submit" style="margin: 1rem 0;" value="変更">
+      </div>
     </form>
     <a href="/" class="back-page">戻る</a>
   </body>
