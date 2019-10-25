@@ -13,6 +13,7 @@ body {
   max-width: 1000px;
   background-color: rgb(215, 241, 245);
   text-align: center;
+  color: rgb(88, 88, 88);
 }
 
 header {
@@ -68,4 +69,8 @@ label {
   background-color: #69F0AE;
   color: #FFF;
   border-radius: 7px;
+}
+
+.null_war {
+  color: rgb(255, 100, 100);
 }
