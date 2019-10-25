@@ -201,11 +201,18 @@ router.get('/acount', function(req, res, next){
     res.redirect('/login');
   }else{
 
-    res.render('acount', 
-    { title: 'acount setting page',
-      user: req.user
+    myData.findOne({hanne: req.user}, function(err, result){
+      
+      var hanne = result.hanne;
+      var password = result.password;
+    
+        res.render('acount', 
+        { title: 'acount setting page',
+          user: req.user,
+          hanne: hanne,
+          password: password
+        });  
     });
-
   }
 });
 
