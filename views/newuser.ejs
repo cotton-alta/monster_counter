@@ -4,13 +4,18 @@
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/login.css' />
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP|Roboto&display=swap" rel="stylesheet">
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"></script>
   </head>
   <body>
     <form action="/newuser" method="post" enctype="multipart/form-data">
+      <header>
+        <h1><%= title %></h1>
+      </header>
       <div>
-        <p>新規会員登録ページ</p>
-      </div>
-      <div>
+        <div><%- null_war %></div>
         <p>ID</p>
         <input type="text" name="hanne">
       </div>
@@ -19,11 +24,17 @@
         <input type="password" name="password">
       </div>
       <div class="profile">
-        <div><p>プロフィール画像</p></div>
-        <div><input type="file" name="profileImage" class="file"></div>
+        <label for="profile">
+          プロフィール画像
+          <input type="file" id="file" name="profileImage" onchange="$('#fake_text_box').val($(this).val())">
+          <input type="text" id="profile" value="ファイル選択" onClick="$('#file').click();">
+        </label>
+      </div>
+      <div style="margin-bottom: 3rem;">
+        <input type="text" id="fake_text_box" value="" size="35" readonly onClick="$('#file').click();">
       </div>
       <div>
-        <input type="submit"value="新規会員登録">
+        <input class="submit_btn" type="submit"value="新規会員登録">
       </div>
     </form>
   </body>

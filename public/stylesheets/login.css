@@ -14,6 +14,21 @@ body {
   background-color: rgb(215, 241, 245);
   text-align: center;
 }
+
+header {
+  background-color: #69F0AE;
+  top: 0;
+  height: 10rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header h1 {
+  color: white;
+}
+
 input {
   width: 50%;
   height: 3.4rem;
@@ -27,7 +42,7 @@ input {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  margin-bottom: 3rem;
+  margin-top: 3rem;
 }
 
 .submit_btn {
@@ -40,4 +55,17 @@ input {
 
 .submit_btn:hover {
   background: #00E676;
+}
+
+label > input {
+  display: none;
+}
+
+label {
+  width: 50%;
+  height: 5rem;
+  font-size: 100%;
+  background-color: #69F0AE;
+  color: #FFF;
+  border-radius: 7px;
 }

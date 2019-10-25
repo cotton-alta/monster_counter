@@ -29,6 +29,9 @@ var model = require('./model');
 var mongodb = require('mongodb');
 var myData = model.schemaModel;
 
+//formに空欄がないか確認するときに使用
+var null_war = '';
+
 
 //indexページget処理
 router.get('/', function(req, res, next) {
@@ -83,14 +86,29 @@ router.get('/', function(req, res, next) {
 
 //新規作成ページget処理
 router.get('/newuser', function(req, res, next){
+  if(req.session.war == true){
+    null_war = '空欄を埋めてください。';
+    req.session.war = null;
+  }else{
+    null_war = '';
+  }
   res.render('newuser',
-  { title: 'newuser page'
+  { title: 'newuser page',
+    null_war: null_war
   });
 });
 
 //新規作成ページpost処理
 // upload.single('フォーム内inputのnameを選択')
 router.post('/newuser', upload.single('profileImage'), function(req, res, next){
+
+  //formに空欄があればリダイレクト
+  if(req.body.hanne == "" || req.body.password == "" || req.body.filename == ""){
+    console.log('redirect');
+    req.session.war = true;
+    res.redirect('/newuser');
+    return;
+  }
 
     //フォームの値を取得
     var hanne = req.body.hanne;
@@ -206,12 +224,20 @@ router.get('/acount', function(req, res, next){
       var hanne = result.hanne;
       var password = result.password;
     
-        res.render('acount', 
-        { title: 'acount setting page',
-          user: req.user,
-          hanne: hanne,
-          password: password
-        });  
+      if(req.session.war == true){
+        null_war = '空欄を埋めてください。';
+        req.session.war = null;
+      }else{
+        null_war = '';
+      }
+
+      res.render('acount', 
+      { title: 'acount setting page',
+        user: req.user,
+        hanne: hanne,
+        password: password,
+        null_war: null_war
+      });  
     });
   }
 });
@@ -222,6 +248,14 @@ router.post('/acount', function(req, res, next){
   if(req.user == undefined){
     res.redirect('/login');
   }else{
+
+    //formに空欄があればリダイレクト
+    if(req.body.username == "" || req.body.password == ""){
+      console.log('redirect');
+      req.session.war = true;
+      res.redirect('/acount');
+      return;
+    }
 
     var new_username = req.body.username;
     var new_password = req.body.password;    
@@ -259,15 +293,30 @@ router.get('/form', function(req, res, next){
     res.redirect('/login');
   }else{
 
+    if(req.session.war == true){
+      null_war = '空欄を埋めてください。';
+      req.session.war = null;
+    }else{
+      null_war = '';
+    }
     res.render('form', 
     { title: 'form page',
-      user: req.user
+      user: req.user,
+      null_war: null_war
     });
 
   }
 });
 
 router.post('/form', function(req, res, next){
+
+  if(req.body.mail == "" || req.body.message == ""){
+    console.log('redirect');
+    req.session.war = true;
+    res.redirect('/form');
+    return;
+  }
+
   var address = req.body.mail;
   var text = req.body.message;
 
