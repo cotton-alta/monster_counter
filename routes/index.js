@@ -32,7 +32,6 @@ var myData = model.schemaModel;
 //formに空欄がないか確認するときに使用
 var null_war = '';
 
-
 //indexページget処理
 router.get('/', function(req, res, next) {
   console.log(req.user);
@@ -103,22 +102,25 @@ router.get('/newuser', function(req, res, next){
 router.post('/newuser', upload.single('profileImage'), function(req, res, next){
 
   //formに空欄があればリダイレクト
-  if(req.body.hanne == "" || req.body.password == "" || req.body.filename == ""){
+  if(req.body.hanne == "" || req.body.password == "" || req.body.fake_text_box == ''){
     console.log('redirect');
     req.session.war = true;
     res.redirect('/newuser');
     return;
   }
 
+    
     //フォームの値を取得
     var hanne = req.body.hanne;
     var password = req.body.password;
-    var image = req.file.filename;
-
+    if(req.body.fake_text_box != ''){
+      var image = req.file.filename;
+    }
+    
     console.log('req.body.hannne : ' + req.body.hanne);
     console.log('req.body.password : ' + req.body.password);
     
-
+    
     var usersdata = new myData({
       'hanne': hanne,
       'password': password,
@@ -132,8 +134,8 @@ router.post('/newuser', upload.single('profileImage'), function(req, res, next){
       'weekData': 0,
       'use': true
     });
-
-
+    
+    
     usersdata.save(function(err){
       if(err){
         console.log(err);
@@ -141,7 +143,7 @@ router.post('/newuser', upload.single('profileImage'), function(req, res, next){
       res.redirect('/login');
     });
 });
-
+  
 //ログインページget処理
 router.get('/login', function(req, res, next) {
   res.render('login', 
@@ -243,11 +245,13 @@ router.get('/acount', function(req, res, next){
 });
 
 //アカウント設定ページpost処理
-router.post('/acount', function(req, res, next){
+router.post('/acount', upload.single('profileImage'), function(req, res, next){
   //ログイン情報がなければログイン画面にリダイレクト
   if(req.user == undefined){
     res.redirect('/login');
   }else{
+
+    console.log('req.body.profileImage' + req.body.profileImage);
 
     //formに空欄があればリダイレクト
     if(req.body.username == "" || req.body.password == ""){
@@ -257,6 +261,13 @@ router.post('/acount', function(req, res, next){
       return;
     }
 
+    console.log('req.body.fake_text_box' + req.body.fake_text_box);
+    if(req.body.fake_text_box == ''){
+      console.log('req.body.profileImage無し');
+    }else{
+      var new_profileImage = req.file.filename;
+    }
+
     var new_username = req.body.username;
     var new_password = req.body.password;    
 
@@ -264,7 +275,11 @@ router.post('/acount', function(req, res, next){
       
       result.hanne = new_username;
       result.password = new_password;
-      
+      if(new_profileImage === undefined){
+        console.log('new_profileImage無し');
+      }else{
+        result.profileImage = new_profileImage;
+      }
       
       result.save(function(err){
         if(err){
