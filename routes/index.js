@@ -227,7 +227,7 @@ router.get('/acount', function(req, res, next){
       var password = result.password;
     
       if(req.session.war == true){
-        null_war = '空欄を埋めてください。';
+        null_war = 'IDとパスワードを空欄にしないでください。';
         req.session.war = null;
       }else{
         null_war = '';

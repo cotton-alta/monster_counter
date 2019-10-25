@@ -52,6 +52,7 @@ input {
   background: #69F0AE;
   color: #FFF;
   border: 1px solid #ccc;
+  margin-top: 3rem;
 }
 
 .submit_btn:hover {
