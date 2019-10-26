@@ -128,7 +128,34 @@ a.btn-count-down, a.btn-count-up {
   } */
 
 .back-page {
-  text-decoration: none;
-  float: right; 
-  margin-right: 10%;
+  display: inline-block;
+  position: relative;
+  text-decoration: none; 
+  margin-left: 80%;
+  padding: 0.5rem 1rem;
+  color:  rgb(88, 88, 88);
+}
+
+.back-page:before, .back-page:after {
+  position: absolute;
+  top: 0;
+  content: '';
+  width: 0.5rem;
+  height: 100%;
+  display: inline-block;
+}
+
+.back-page:before {
+  border-left: solid 3px #00E676;
+  border-top: solid 3px #00E676;
+  border-bottom: solid 3px #00E676;
+  left: 0;
+}
+
+.back-page:after {
+  content: '';
+  border-top: solid 3px #00E676;
+  border-right: solid 3px #00E676;
+  border-bottom: solid 3px #00E676;
+  right: 0;
 }
