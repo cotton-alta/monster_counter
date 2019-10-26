@@ -1,15 +1,25 @@
 
-body {
-  /* padding: 50px; */
-  /* font: 2.5rem "Lucida Grande", Helvetica, Arial, sans-serif; */
-  font: 2.5rem 'Roboto', 'Noto Sans JP', sans-serif;
-  /* 開発中のみ */
-  /* width: 400px; */
-  width: 100%;
-  max-width: 1024px;
-  background-color: rgb(215, 241, 245);
-  margin-top: 0px;
+
+@media screen and (max-width: 1024px) {
+  body {
+    font: 2.5rem 'Roboto', 'Noto Sans JP', sans-serif;
+    width: 100%;
+    margin: 0;
+    background-color: rgb(215, 241, 245);
+    margin-top: 0px;
+  }
 }
+
+@media screen and (min-width: 1025px) {
+  body {
+    font: 2rem 'Roboto', 'Noto Sans JP', sans-serif;
+    width: 100%;
+    margin: 0;
+    background-color: rgb(215, 241, 245);
+    margin-top: 0px;
+  }
+}
+
 
 header {
   background-color: #69F0AE;
@@ -34,14 +44,35 @@ li {
   list-style: none;
 }
 
-.flex-pack {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  padding-bottom: 3px;
-  margin: 4%;
-  color: rgb(88, 88, 88);
+@media screen and (min-width: 1025px) {
+  .rank_top {
+    margin-left: 20%;
+  }
 }
+
+@media screen and (max-width: 1024px) {
+  .flex-pack {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-bottom: 3px;
+    margin: 4%;
+    color: rgb(88, 88, 88);
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .flex-pack {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-bottom: 3px;
+    margin: 0 auto;
+    color: rgb(88, 88, 88);
+    width: 60%;
+  }
+}
+
 
 .flex-border {
   line-height: 36px;
@@ -50,13 +81,27 @@ li {
   text-align: center;
 }
 
-.back-page {
-  display: inline-block;
-  position: relative;
-  text-decoration: none; 
-  margin-left: 80%;
-  padding: 0.5rem 1rem;
-  color:  rgb(88, 88, 88);
+@media screen and (max-width: 1024px) {
+  .back-page {
+    display: inline-block;
+    position: relative;
+    text-decoration: none; 
+    margin-left: 80%;
+    padding: 0.5rem 1rem;
+    color:  rgb(88, 88, 88);
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .back-page {
+    display: inline-block;
+    position: relative;
+    text-decoration: none; 
+    margin-left: 80%;
+    padding: 0.5rem 1rem;
+    color:  rgb(88, 88, 88);
+    margin-top: 3rem;
+  }
 }
 
 .back-page:before, .back-page:after {

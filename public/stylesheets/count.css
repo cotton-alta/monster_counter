@@ -3,20 +3,41 @@
   padding: 0px;
 }
 
-body {
-  /* padding: 50px; */
-  /* font: 2.5rem "Lucida Grande", Helvetica, Arial, sans-serif; */
-  font: 2.5rem 'Roboto', 'Noto Sans JP', sans-serif;
-  /* 開発中のみ */
-  /* width: 400px; */
-  width: 100%;
-  max-width: 1024px;
-  background-color: rgb(215, 241, 245);
+@media screen and (max-width: 1024px) {
+
+}
+@media screen and (min-width: 1025px) {
+
 }
 
-.flex {
-  margin: 4%;
+@media screen and (max-width: 1024px) {
+  body {
+    font: 2.5rem 'Roboto', 'Noto Sans JP', sans-serif;
+    width: 100%;
+    background-color: rgb(215, 241, 245);
+  }
 }
+@media screen and (min-width: 1025px) {
+  body {
+    font: 2rem 'Roboto', 'Noto Sans JP', sans-serif;
+    width: 100%;
+    background-color: rgb(215, 241, 245);
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .flex {
+    margin: 4%;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .flex {
+    margin: 0 auto;
+    width: 60%;
+  }
+}
+
+
 
 header {
   background-color: #69F0AE;
@@ -126,15 +147,29 @@ a.btn-count-down, a.btn-count-up {
     display: flex;
     justify-content: center;
   } */
-
-.back-page {
-  display: inline-block;
-  position: relative;
-  text-decoration: none; 
-  margin-left: 80%;
-  padding: 0.5rem 1rem;
-  color:  rgb(88, 88, 88);
+  
+@media screen and (max-width: 1024px) {
+  .back-page {
+    display: inline-block;
+    position: relative;
+    text-decoration: none; 
+    margin-left: 80%;
+    padding: 0.5rem 1rem;
+    color:  rgb(88, 88, 88);
+  }
 }
+@media screen and (min-width: 1025px) {
+  .back-page {
+    display: inline-block;
+    position: relative;
+    text-decoration: none; 
+    margin-left: 80%;
+    padding: 0.5rem 1rem;
+    color:  rgb(88, 88, 88);
+    margin-top: 3rem;
+  }
+}
+
 
 .back-page:before, .back-page:after {
   position: absolute;
