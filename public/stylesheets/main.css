@@ -3,20 +3,22 @@
   padding: 0px;
 }
 
-body {
-  /* padding: 50px; */
-  /* font: 2.5rem "Lucida Grande", Helvetica, Arial, sans-serif; */
-  /* font: 2.5rem 'Roboto', Helvetica, Arial, sans-serif; */
-  font: 2.5rem 'Roboto', 'Noto Sans JP', sans-serif;
-  /* font-size: 2.5rem; */
-  /* font-family: 'Roboto', sans-serif;
-  font-family: 'Noto Sans JP', sans-serif; */
-  /* 開発中のみ */
-  /* width: 400px; */
-  width: 100%;
-  max-width: 1024px;
-  background-color: rgb(215, 241, 245);
-  text-align: center;
+@media screen and (max-width: 1024px) {
+  body {
+    font: 2.5rem 'Roboto', 'Noto Sans JP', sans-serif;
+    width: 100%;
+    background-color: rgb(215, 241, 245);
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  body {
+    font: 2rem 'Roboto', 'Noto Sans JP', sans-serif;
+    width: 100%;
+    background-color: rgb(215, 241, 245);
+    text-align: center;
+  }
 }
 
 header {
@@ -38,35 +40,54 @@ header h1 {
   color: rgb(88, 88, 88);
 }
 
-.profileImage {
-  width: 100px;
-  border-radius: 50%;
+
+
+@media screen and (max-width: 1024px) {
+  .profileImage {
+    width: 100px;
+    border-radius: 50%;
+  }
+  
+  .profileImage {
+    width: 30%;
+  }
 }
 
-.profileImage {
-  width: 30%;
+@media screen and (min-width: 1025px) {
+  .profileImage {
+    border-radius: 50%;
+  }
+  .profileImage {
+    width: 20%;
+  }
 }
 
-.detailButton {
-  display: inline-block;
-  text-decoration: none;
-  /* width: 200px; */
-  width: 85%;
-  /* padding-top: 6%; */
-  /* height: auto; */
-  background: #69F0AE;
-  color: #FFF;
-  /* padding: 5px; */
-  margin: 0 auto 30px;
-  /* border: 1px solid gray; */
-  /* background-color: gray; */
-  border-radius: 3px;
-  line-height: 100px;
+@media screen and (max-width: 1024px) {
+  .detailButton {
+    display: inline-block;
+    text-decoration: none;
+    width: 85%;
+    background: #69F0AE;
+    color: #FFF;
+    margin: 0 auto 30px;
+    border-radius: 3px;
+    line-height: 100px;
+  }
 }
 
-/* .detailButton a {
-  line-height: 100%;
-} */
+@media screen and (min-width: 1025px) {
+  .detailButton {
+    display: inline-block;
+    text-decoration: none;
+    width: 50%;
+    background: #69F0AE;
+    color: #FFF;
+    margin: 0 auto 30px;
+    border-radius: 3px;
+    line-height: 100px;
+  }
+}
+
 
 .detailButton:hover {
   background: #00E676;
@@ -98,40 +119,47 @@ header h1 {
   border-radius: 50%;
 }
 
-.callout {
-  /* width: 100%; */
-  height: auto;
+@media screen and (max-width: 1024px) {
+  .callout {
+    /* width: 100%; */
+    height: auto;
+  }
+  
+  .chat {
+    margin-right: 5px;
+    margin-left: 5%;
+  }
+  
+  .says {
+    display: inline-block;
+    position: relative;
+    margin: 5px 0 0 5px;
+    padding: 17px 13px;
+    border-radius: 12px;
+    background: #69F0AE;
+    color: rgb(88, 88, 88);
+  }
+  
+  .says:after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 20%;
+    left: -20%;
+    border: 50px solid transparent;
+    border-right: 60px solid #69F0AE;
+    z-index: 0;
+  }
+  
+  .says p {
+    margin: 0;
+    padding: 0;
+    z-index: 3;
+  }
 }
 
-.chat {
-  margin-right: 5px;
-  margin-left: 5%;
-}
-
-.says {
-  display: inline-block;
-  position: relative;
-  margin: 5px 0 0 5px;
-  padding: 17px 13px;
-  border-radius: 12px;
-  background: #69F0AE;
-  color: rgb(88, 88, 88);
-}
-
-.says:after {
-  content: "";
-  display: inline-block;
-  position: absolute;
-  top: 20%;
-  left: -20%;
-  border: 50px solid transparent;
-  border-right: 60px solid #69F0AE;
-  z-index: 0;
-}
-
-.says p {
-  margin: 0;
-  padding: 0;
-  z-index: 3;
-
+@media screen and (min-width: 1025px) {
+  .callout {
+    display: none;
+  }
 }
