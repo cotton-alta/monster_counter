@@ -44,7 +44,7 @@ router.get('/', function(req, res, next) {
     myData.findOne({hanne: req.user}, function(err, result){
       
       //レベル判定
-      result.numMonster = result.greenMonster + result.redMonster + result.whiteMonster + result.blueMonster;
+      result.numMonster = result.greenMonster + result.redMonster + result.whiteMonster + result.blueMonster + result.pinkMonster + result.otherMonster;
 
       if(result.numMonster < 5){
         result.rank = 1;
@@ -129,6 +129,8 @@ router.post('/newuser', upload.single('profileImage'), function(req, res, next){
       'redMonster': 0,
       'whiteMonster': 0,
       'blueMonster': 0,
+      'pinkMonster': 0,
+      'otherMonster': 0,
       'numMonster': 0,
       'profileImage': image,
       'weekData': 0,

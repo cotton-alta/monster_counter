@@ -9,6 +9,8 @@ var schemaModel = new Schema({
     'redMonster': Number,
     'whiteMonster': Number,
     'blueMonster': Number,
+    'pinkMonster': Number,
+    'otherMonster': Number,
     'numMonster': Number,
     'profileImage': String,
     'weekData': Number,

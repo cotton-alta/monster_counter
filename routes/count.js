@@ -25,6 +25,8 @@ router.get('/', function(req, res, next){
         var redMonster = result[0].redMonster;
         var whiteMonster = result[0].whiteMonster;
         var blueMonster = result[0].blueMonster;
+        var pinkMonster = result[0].pinkMonster;
+        var otherMonster = result[0].otherMonster;
         
         res.render('count', 
         { title: 'count page',
@@ -32,7 +34,9 @@ router.get('/', function(req, res, next){
         greenMonster: greenMonster,
         redMonster: redMonster,
         whiteMonster: whiteMonster,
-        blueMonster: blueMonster
+        blueMonster: blueMonster,
+        pinkMonster: pinkMonster,
+        otherMonster: otherMonster
       });
     });
   }
@@ -204,6 +208,94 @@ router.get('/', function(req, res, next){
 
           result.weekData -= 1;
           result.blueMonster -= 1;
+          result.save(function(err){
+            if(err){
+              console.log(err);
+            }
+            res.redirect('/count');
+          });
+        }
+      });
+    }
+  });
+
+  //カウントアップ ピンク魔剤
+  router.get('/countUpPink', function(req, res, next){
+  
+    if(req.user == undefined){
+      res.redirect('/login');
+    }else{
+      myData.findOne({hanne: req.user}, function(err, result){
+        
+        result.weekData += 1;
+        result.pinkMonster += 1;
+        result.save(function(err){
+          if(err){
+            console.log(err);
+          }
+          res.redirect('/count');
+        });
+      });
+    }
+  });
+  
+  //カウントダウン ピンク魔剤
+  router.get('/countDownPink', function(req, res, next){
+  
+    if(req.user == undefined){
+      res.redirect('/login');
+    }else{
+      myData.findOne({hanne: req.user}, function(err, result){
+        if(result.pinkMonster <= 0){
+          res.redirect('/count');
+        }else{
+
+          result.weekData -= 1;
+          result.pinkMonster -= 1;
+          result.save(function(err){
+            if(err){
+              console.log(err);
+            }
+            res.redirect('/count');
+          });
+        }
+      });
+    }
+  });
+
+  //カウントアップ その他
+  router.get('/countUpOther', function(req, res, next){
+  
+    if(req.user == undefined){
+      res.redirect('/login');
+    }else{
+      myData.findOne({hanne: req.user}, function(err, result){
+        
+        result.weekData += 1;
+        result.otherMonster += 1;
+        result.save(function(err){
+          if(err){
+            console.log(err);
+          }
+          res.redirect('/count');
+        });
+      });
+    }
+  });
+  
+  //カウントダウン その他
+  router.get('/countDownOther', function(req, res, next){
+  
+    if(req.user == undefined){
+      res.redirect('/login');
+    }else{
+      myData.findOne({hanne: req.user}, function(err, result){
+        if(result.otherMonster <= 0){
+          res.redirect('/count');
+        }else{
+
+          result.weekData -= 1;
+          result.otherMonster -= 1;
           result.save(function(err){
             if(err){
               console.log(err);
