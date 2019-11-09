@@ -13,8 +13,6 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-var d3 = require("d3");
-
 var nodemailer = require('nodemailer');
 
 //プロフィール画像のアップロード
@@ -115,11 +113,7 @@ router.post('/newuser', upload.single('profileImage'), function(req, res, next){
     var password = req.body.password;
     if(req.body.fake_text_box != ''){
       var image = req.file.filename;
-    }
-    
-    console.log('req.body.hannne : ' + req.body.hanne);
-    console.log('req.body.password : ' + req.body.password);
-    
+    }    
     
     var usersdata = new myData({
       'hanne': hanne,
@@ -136,7 +130,6 @@ router.post('/newuser', upload.single('profileImage'), function(req, res, next){
       'weekData': 0,
       'use': true
     });
-    
     
     usersdata.save(function(err){
       if(err){
@@ -205,11 +198,6 @@ router.get('/graph', function(req, res, next){
   if(req.user == undefined){
     res.redirect('/login');
   }else{
-
-    // var svg = d3.select("body");
-
-    console.log(req.html);
-
     res.render('graph', 
     { title: 'graph page' ,
       user: req.user  
@@ -252,8 +240,6 @@ router.post('/acount', upload.single('profileImage'), function(req, res, next){
   if(req.user == undefined){
     res.redirect('/login');
   }else{
-
-    console.log('req.body.profileImage' + req.body.profileImage);
 
     //formに空欄があればリダイレクト
     if(req.body.username == "" || req.body.password == ""){
